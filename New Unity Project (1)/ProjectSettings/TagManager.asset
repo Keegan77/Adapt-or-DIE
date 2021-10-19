@@ -42,5 +42,8 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Characters
+    uniqueID: 2300640341
+    locked: 0
+  - name: Arm
     uniqueID: 255291639
     locked: 0

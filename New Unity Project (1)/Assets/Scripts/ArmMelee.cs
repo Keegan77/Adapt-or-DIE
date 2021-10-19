@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ArmMelee : MonoBehaviour
 {
-    public GameObject arm;
     public float rotationSpeed = 0;
     bool swinging = false;
     //bool justswung = false;
@@ -17,7 +16,7 @@ public class ArmMelee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && transform.rotation.z == 0) {
+        if (Input.GetKeyDown(KeyCode.Space) && transform.rotation.z <= 0) {
 
             
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 154.36f);
@@ -28,7 +27,7 @@ public class ArmMelee : MonoBehaviour
         {
             
             //StartCoroutine("Swing");
-            //transform.Rotate(new Vector3(0, 0, -1));
+            transform.Rotate(new Vector3(0, 0, -1));
             if (transform.rotation.z <= 0) {
                 swinging = false;
             }
