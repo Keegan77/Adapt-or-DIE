@@ -8,14 +8,21 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public bool facingRight;
 
-    public Rigidbody2D rb;
-    public Animator animator;
-    public GameObject arm;
+    Rigidbody2D rb;
+    Animator animator;
+    GameObject arm;
+    GameObject pivot;
 
     Vector2 movement;
     private void Start()
     {
         facingRight = true;
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        arm = GameObject.Find("ArchieMArm");
+        pivot = GameObject.Find("ArmPivot");
+
+
     }
     // Update is called once per frame
     void Update()
