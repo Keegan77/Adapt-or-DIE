@@ -123,6 +123,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &333942145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 333942146}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &333942146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333942145}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.034071207, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1050166447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -178,8 +208,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archie
       objectReference: {fileID: 0}
+    - target: {fileID: 7982062366744596638, guid: bbe49babec2b6514bbc89649bfc05d76, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbe49babec2b6514bbc89649bfc05d76, type: 3}
+--- !u!1 &1050166448 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7982062366744596638, guid: bbe49babec2b6514bbc89649bfc05d76, type: 3}
+  m_PrefabInstance: {fileID: 1050166447}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1050166449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050166448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbba63b18a89f5046b46acfed960f076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 29
+  facingRight: 0
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  arm: {fileID: 0}
 --- !u!1 &1767378355
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,21 +326,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1904348267, guid: 8d83bbed0ff2b1247ac2b722d4775797, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1904348268, guid: 8d83bbed0ff2b1247ac2b722d4775797, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1904348268, guid: 8d83bbed0ff2b1247ac2b722d4775797, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2050667326142395696, guid: 8d83bbed0ff2b1247ac2b722d4775797, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2050667326142395696, guid: 8d83bbed0ff2b1247ac2b722d4775797, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6545585
-      objectReference: {fileID: 0}
-    - target: {fileID: 2050667326142395696, guid: 8d83bbed0ff2b1247ac2b722d4775797, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6545585
-      objectReference: {fileID: 0}
-    - target: {fileID: 2050667326142395696, guid: 8d83bbed0ff2b1247ac2b722d4775797, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.7208
       objectReference: {fileID: 0}
     - target: {fileID: 2050667326142395696, guid: 8d83bbed0ff2b1247ac2b722d4775797, type: 3}
       propertyPath: m_LocalPosition.x
@@ -329,6 +385,10 @@ PrefabInstance:
     - target: {fileID: 5059076220853678315, guid: 8d83bbed0ff2b1247ac2b722d4775797, type: 3}
       propertyPath: m_Name
       value: MrSkeletonSWalk_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7350342913217697204, guid: 8d83bbed0ff2b1247ac2b722d4775797, type: 3}
+      propertyPath: speed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d83bbed0ff2b1247ac2b722d4775797, type: 3}
