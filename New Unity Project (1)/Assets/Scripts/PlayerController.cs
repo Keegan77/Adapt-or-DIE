@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     GameObject arm;
     GameObject pivot;
+    
 
     Vector2 movement;
     private void Start()

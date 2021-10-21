@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class ArmMelee : MonoBehaviour
 {
-    public float rotationSpeed = 0;
+    public float rotationSpeed;
     public bool swingingright = false;
     public bool swingingleft = false;
     public PlayerController PlayerController;
+
     //bool justswung = false;
     // Start is called before the first frame update
     void Start()
     {
+
         //PlayerController = GetComponent<PlayerController>();
+
     }
 
     // Update is called once per frame
@@ -21,24 +24,25 @@ public class ArmMelee : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && swingingleft == false && swingingright == false)
         {
 
+
             if (PlayerController.facingRight == true)
             {
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 154.36f);
                 swingingright = true;
-                Debug.Log("Test");
+                //Debug.Log("Test");
             }
             else if (PlayerController.facingRight == false)
             {
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -154.36f);
                 swingingleft = true;
-                Debug.Log("Test");
+                //Debug.Log("Test");
             }
         }
         if (swingingright == true)
         {
 
             //StartCoroutine("Swing");
-            transform.Rotate(new Vector3(0, 0, -1));
+            transform.Rotate(new Vector3(0, 0, -rotationSpeed));
             if (transform.rotation.z <= 0)
             {
                 swingingright = false;
@@ -48,12 +52,12 @@ public class ArmMelee : MonoBehaviour
         {
 
             //StartCoroutine("Swing");
-            transform.Rotate(new Vector3(0, 0, -1));
+            transform.Rotate(new Vector3(0, 0, -rotationSpeed));
             if (transform.rotation.z >= 0)
             {
                 swingingleft = false;
             }
-            Debug.Log("Hello");
+            //Debug.Log("Hello");
         }
 
     }
