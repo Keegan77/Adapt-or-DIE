@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ArmMelee : MonoBehaviour
 {
-    public float rotationSpeed;
+    
+    float rotationSpeed = 1.5f;
     public bool swingingright = false;
     public bool swingingleft = false;
     public PlayerController PlayerController;

@@ -14,6 +14,8 @@ public class Enemies : MonoBehaviour
     Vector2 movement;
     BoxCollider2D enemybox;
     public bool enemyFacingRight;
+
+    public int enemyHealth = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,5 +50,10 @@ public class Enemies : MonoBehaviour
             transform.localScale = new Vector2(0.5170946f, 0.5170946f); //
             enemyFacingRight = true;
         }
+        if (enemyHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+        Debug.Log(enemyHealth);
     }
 }

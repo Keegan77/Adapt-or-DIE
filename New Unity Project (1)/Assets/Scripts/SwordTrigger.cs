@@ -10,6 +10,7 @@ public class SwordTrigger : MonoBehaviour
     public GameObject pivot;
     Rigidbody2D rb2d;
     public GameObject enemyobj;
+    Enemies enemyscript;
     //Enemies enemies;
 
 
@@ -23,6 +24,7 @@ public class SwordTrigger : MonoBehaviour
         ObjectCollider = GetComponent<PolygonCollider2D>();
         ArmMelee = pivot.GetComponent<ArmMelee>();
         rb2d = GetComponent<Rigidbody2D>();
+        enemyscript = enemyobj.GetComponent<Enemies>();
     }
 
     // Update is called once per frame
@@ -45,7 +47,7 @@ public class SwordTrigger : MonoBehaviour
         {
             knockback = -50;
         }
-        else if (enemyobj.transform.position.x > transform.position.x - 3)
+        else if (enemyobj.transform.position.x > transform.position.x - 10)
         {
             knockback = 50;
         }
@@ -54,10 +56,11 @@ public class SwordTrigger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
+            enemyscript.enemyHealth -= 1;
+            /*Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
             float verticalknockback = (enemyobj.transform.position.y - transform.position.y) * 50;
-            rb.AddForce(new Vector2(knockback, verticalknockback), ForceMode2D.Impulse);
-            
+            rb.AddForce(new Vector2(knockback, verticalknockback), ForceMode2D.Impulse);*/
+            Debug.Log("Hit");
         }
     }
 }

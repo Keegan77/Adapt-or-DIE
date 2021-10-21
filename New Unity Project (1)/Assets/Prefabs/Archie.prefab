@@ -167,6 +167,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &1528797511
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7982062368671724774}
+  m_BodyType: 1
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &2554313897793458864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -174,6 +195,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7982062366744596634}
     m_Modifications:
+    - target: {fileID: 5600021189677442643, guid: 70d7e8276786d3e4c92f5bf7f6ab87f7, type: 3}
+      propertyPath: enemyobj
+      value: 
+      objectReference: {fileID: 3748828772709978587, guid: 5fd97eb972fcd0d4080b9ce7ddb53000, type: 3}
     - target: {fileID: 5600021191524299948, guid: 70d7e8276786d3e4c92f5bf7f6ab87f7, type: 3}
       propertyPath: m_Name
       value: ArmPivot
@@ -231,5 +256,10 @@ PrefabInstance:
 --- !u!4 &7982062366959707679 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5600021191524299951, guid: 70d7e8276786d3e4c92f5bf7f6ab87f7, type: 3}
+  m_PrefabInstance: {fileID: 2554313897793458864}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7982062368671724774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5600021189677442646, guid: 70d7e8276786d3e4c92f5bf7f6ab87f7, type: 3}
   m_PrefabInstance: {fileID: 2554313897793458864}
   m_PrefabAsset: {fileID: 0}
