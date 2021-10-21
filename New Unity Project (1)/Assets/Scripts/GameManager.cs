@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         
         playstyle = Random.Range(0, 3);
         Debug.Log(playstyle);
-        Instantiate(playstyles[0], new Vector3(-8.57f, 0.468f, 0), transform.rotation);
+        Instantiate(playstyles[playstyle], new Vector3(-8.57f, 0.468f, 0), transform.rotation);
         //Debug.Log("yo");
     }
 
@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     {
         enemiesToDefeat = level;
         EndGame();
+        //Debug.Log(playerhealth);
 
     }
     private void EndGame()
@@ -59,7 +60,6 @@ public class GameManager : MonoBehaviour
                     break;
             }
             
-            Debug.Log("Destroyed");
         }
     }
 }

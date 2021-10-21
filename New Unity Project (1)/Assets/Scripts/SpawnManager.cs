@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject enemy;
+    public GameObject[] enemy;
+    public int enemychosen; // 0 melee, 1 archer, 2 mage
     public float spawnrangeleftX = 0;
     public float spawnrangerightX = 5f;
     public float spawnrangeY = 3.5f;
@@ -12,8 +13,12 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //for (int i = 0; i < 3; i++)
-        //Instantiate(enemy, GenerateEnemySpawn(), transform.rotation);
+        for (int i = 0; i < 3; i++)
+        {
+            enemychosen = Random.Range(0, 2);
+            Instantiate(enemy[enemychosen], GenerateEnemySpawn(), transform.rotation);
+        }
+        
     }
 
     // Update is called once per frame

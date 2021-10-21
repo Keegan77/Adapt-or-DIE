@@ -9,11 +9,16 @@ public class EnemyArrow : MonoBehaviour
 
     public float speed;
     public float lifeTime;
+    public GameObject gamemanager;
+    GameManager gamemanagerscript;
     // Start is called before the first frame update
     void Start()
     {
+        gamemanager = GameObject.Find("GameManager");
+        gamemanagerscript = gamemanager.gameObject.GetComponent<GameManager>();
+
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        //Invoke("DestroyProjectile", lifeTime);
+        Invoke("DestroyProjectile", lifeTime);
         Vector2 SkeleDirection = transform.position;
         Vector2 PlayerDirection = Player.transform.position;
         Vector2 direction = PlayerDirection - SkeleDirection;
@@ -33,11 +38,11 @@ public class EnemyArrow : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<EnemyHealth>().Damage(1);
             Destroy(gameObject);
-
+            gamemanagerscript.playerhealth --;
+            
         }
         else if (other.gameObject.CompareTag("Props"))
         {

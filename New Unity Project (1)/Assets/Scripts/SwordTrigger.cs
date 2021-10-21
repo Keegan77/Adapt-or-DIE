@@ -83,5 +83,9 @@ public class SwordTrigger : MonoBehaviour
             //box.isTrigger = true;
             Debug.Log("Hit");
         }
+        if (other.gameObject.CompareTag("Projectile"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

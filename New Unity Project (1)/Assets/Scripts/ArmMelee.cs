@@ -9,8 +9,8 @@ public class ArmMelee : MonoBehaviour
     public bool swingingright = false;
     public bool swingingleft = false;
     public PlayerController PlayerController;
-    private float timebtwshots;
-    public float starttimebtwshots = 5;
+    private float timebtwshots = 1;
+    private float starttimebtwshots = 1000;
 
     //bool justswung = false;
     // Start is called before the first frame update
@@ -24,14 +24,13 @@ public class ArmMelee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(timebtwshots);
         if (timebtwshots <= 0)
         {
-            timebtwshots = starttimebtwshots;
+            
 
             if (Input.GetMouseButtonDown(0) && swingingleft == false && swingingright == false)
             {
-
+                
 
                 if (PlayerController.facingRight == true)
                 {
@@ -45,6 +44,7 @@ public class ArmMelee : MonoBehaviour
                     swingingleft = true;
                     //Debug.Log("Test");
                 }
+                
             }
             if (swingingright == true)
             {
@@ -54,6 +54,7 @@ public class ArmMelee : MonoBehaviour
                 if (transform.rotation.z <= 0)
                 {
                     swingingright = false;
+                    timebtwshots = starttimebtwshots;
                 }
             }
             if (swingingleft == true)
@@ -64,12 +65,16 @@ public class ArmMelee : MonoBehaviour
                 if (transform.rotation.z >= 0)
                 {
                     swingingleft = false;
+                    timebtwshots = starttimebtwshots;
                 }
                 
                 //Debug.Log("Hello");
             }
             
-        } else timebtwshots -= Time.deltaTime;
+
+        } else timebtwshots -= 1;
+
+        Debug.Log(timebtwshots);
 
     }
 }
