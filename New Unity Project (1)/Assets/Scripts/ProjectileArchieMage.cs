@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class ProjectileArchieMage : MonoBehaviour
 {
     public float speed;
     public float lifeTime;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,11 +30,14 @@ public class Projectile : MonoBehaviour
             other.gameObject.GetComponent<EnemyHealth>().Damage(1);
             Destroy(gameObject);
 
-        } else if (other.gameObject.CompareTag("Props"))
-            {
+        }
+        if (other.gameObject.CompareTag("Props"))
+        {
             Destroy(gameObject);
+            Debug.Log("Prop");
         }
 
 
     }
 }
+

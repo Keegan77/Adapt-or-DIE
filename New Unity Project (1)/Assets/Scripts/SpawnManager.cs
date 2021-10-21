@@ -13,7 +13,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         //for (int i = 0; i < 3; i++)
-        Instantiate(enemy, GenerateEnemySpawn(), transform.rotation);
+        //Instantiate(enemy, GenerateEnemySpawn(), transform.rotation);
     }
 
     // Update is called once per frame

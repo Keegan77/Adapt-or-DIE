@@ -2,23 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class EnemyArrow : MonoBehaviour
 {
+
+    private Transform Player;
+
     public float speed;
     public float lifeTime;
-    
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("DestroyProjectile", lifeTime);
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        //Invoke("DestroyProjectile", lifeTime);
+        Vector2 SkeleDirection = transform.position;
+        Vector2 PlayerDirection = Player.transform.position;
+        Vector2 direction = PlayerDirection - SkeleDirection;
+        transform.right = direction;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
         transform.Translate(Vector2.right * speed * Time.deltaTime);
     }
-
     void DestroyProjectile()
     {
         Destroy(gameObject);
@@ -30,8 +38,9 @@ public class Projectile : MonoBehaviour
             other.gameObject.GetComponent<EnemyHealth>().Damage(1);
             Destroy(gameObject);
 
-        } else if (other.gameObject.CompareTag("Props"))
-            {
+        }
+        else if (other.gameObject.CompareTag("Props"))
+        {
             Destroy(gameObject);
         }
 

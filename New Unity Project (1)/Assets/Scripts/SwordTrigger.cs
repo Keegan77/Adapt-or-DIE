@@ -10,7 +10,11 @@ public class SwordTrigger : MonoBehaviour
     public GameObject pivot;
     Rigidbody2D rb2d;
     public GameObject enemyobj;
-    Enemies enemyscript;
+    bool wait = false;
+    public float timermax = 15;
+    public float timer;
+    BoxCollider2D box;
+    //Enemies enemyscript;
     //Enemies enemies;
 
 
@@ -19,12 +23,13 @@ public class SwordTrigger : MonoBehaviour
 
     void Start()
     {
-        
+        timer = timermax;
        //enemies = GameObject.FindGameObjectWithTag("Enemies").GetComponent<Enemies>();
         ObjectCollider = GetComponent<PolygonCollider2D>();
         ArmMelee = pivot.GetComponent<ArmMelee>();
         rb2d = GetComponent<Rigidbody2D>();
-        enemyscript = enemyobj.GetComponent<Enemies>();
+        box = enemyobj.gameObject.GetComponent<BoxCollider2D>();
+        //enemyscript = enemyobj.GetComponent<Enemies>();
     }
 
     // Update is called once per frame
@@ -47,19 +52,35 @@ public class SwordTrigger : MonoBehaviour
         {
             knockback = -50;
         }
-        else if (enemyobj.transform.position.x > transform.position.x - 10)
+        else if (enemyobj.transform.position.x > transform.position.x)
         {
             knockback = 50;
         }
+        //if (wait == true)
+       // {
+            ///timer -= 1;
+            //if (timer <= 0)
+           // {
+             //   box.isTrigger = false;
+             //   timer = timermax;
+              //  wait = false;
+            //}
+        //}
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            enemyscript.enemyHealth -= 1;
-            /*Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
-            float verticalknockback = (enemyobj.transform.position.y - transform.position.y) * 50;
-            rb.AddForce(new Vector2(knockback, verticalknockback), ForceMode2D.Impulse);*/
+            //enemyscript.enemyHealth -= 1;
+            //Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>();
+
+            
+            //wait = true;
+            //float verticalknockback = (enemyobj.transform.position.y - transform.position.y) * 50;
+            //rb.AddForce(new Vector2(knockback, verticalknockback), ForceMode2D.Impulse);
+            other.gameObject.GetComponent<EnemyHealth>().Damage(1);
+            //box.isTrigger = true;
             Debug.Log("Hit");
         }
     }

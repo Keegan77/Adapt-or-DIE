@@ -13,9 +13,13 @@ public class Enemies : MonoBehaviour
     Transform enemy;
     Vector2 movement;
     BoxCollider2D enemybox;
+    public GameObject gamemanager;
+    
     public bool enemyFacingRight;
-
-    public int enemyHealth = 3;
+    public float atktimermax = 15f;
+    public float atktimer;
+    GameManager gamemanagerscript;
+    public int enemHealth = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +28,9 @@ public class Enemies : MonoBehaviour
         playerobj = GameObject.FindGameObjectWithTag("Player");
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Transform>();
         animator = GetComponent<Animator>();
+        atktimer = atktimermax;
+        gamemanager = GameObject.Find("GameManager");
+        gamemanagerscript = gamemanager.gameObject.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -32,7 +39,7 @@ public class Enemies : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, Player.position, speed * Time.deltaTime);
         if (Vector2.Distance(transform.position, Player.position) < 1)
         {
-            speed = 0;
+            speed = 0.1f;
         }
         else if (Vector2.Distance(transform.position, Player.position) > 1)
         {
@@ -50,10 +57,42 @@ public class Enemies : MonoBehaviour
             transform.localScale = new Vector2(0.5170946f, 0.5170946f); //
             enemyFacingRight = true;
         }
-        if (enemyHealth <= 0)
+        if (enemHealth <= 0)
         {
             Destroy(gameObject);
         }
-        Debug.Log(enemyHealth);
+        //Debug.Log(enemHealth);
+    }
+    public void Damage (int dmg)
+    {
+        enemHealth -= dmg;
+    }
+    public void DamagePlayer (int dmg)
+    {
+        //atktimer -= 1;
+       // if (atktimer <= 0)
+       // {
+       //     gamemanager.gameObject.GetComponent<GameManager>().playerhealth -= dmg;
+       //     atktimer = atktimermax;
+      //  }
+    }
+    //private void OnCollisionStay(Collision2D other)
+   // {
+//
+  //  }
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        
+        if (other.gameObject.CompareTag("Player"))
+        {
+            atktimer -= 1;
+            if (atktimer <= 0)
+            {
+                gamemanagerscript.playerhealth -= 1;
+                atktimer = atktimermax;
+                Debug.Log("ATTACKING");
+
+            }
+        }
     }
 }

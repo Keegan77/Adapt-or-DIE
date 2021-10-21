@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3748828772709978582}
   - component: {fileID: 3748828772709978585}
   - component: {fileID: 3748828772709978584}
+  - component: {fileID: 9174376709308489763}
   m_Layer: 0
   m_Name: MrSkeletonMelee
   m_TagString: Enemy
@@ -118,7 +119,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.22195086, y: 0}
+  m_Offset: {x: 0.3996348, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -129,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8455322, y: 3.6}
+  m_Size: {x: 2.200897, y: 3.6}
   m_EdgeRadius: 0
 --- !u!50 &3748828772709978585
 Rigidbody2D:
@@ -164,4 +165,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69fc87c71ff5c54c9e90bcb00760860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gamemanager: {fileID: 2956150525669698962, guid: 848790e6d8f34f94fa8ba65697fed516, type: 3}
   enemyFacingRight: 0
+  atktimermax: 30
+  atktimer: 0
+  enemHealth: 3
+--- !u!114 &9174376709308489763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3748828772709978587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79cf6a0ff88f1e740bccdc2518ac7fbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemHealth: 3

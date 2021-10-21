@@ -9,6 +9,8 @@ public class ArmMelee : MonoBehaviour
     public bool swingingright = false;
     public bool swingingleft = false;
     public PlayerController PlayerController;
+    private float timebtwshots;
+    public float starttimebtwshots = 5;
 
     //bool justswung = false;
     // Start is called before the first frame update
@@ -22,44 +24,52 @@ public class ArmMelee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && swingingleft == false && swingingright == false)
+        Debug.Log(timebtwshots);
+        if (timebtwshots <= 0)
         {
+            timebtwshots = starttimebtwshots;
+
+            if (Input.GetMouseButtonDown(0) && swingingleft == false && swingingright == false)
+            {
 
 
-            if (PlayerController.facingRight == true)
-            {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 154.36f);
-                swingingright = true;
-                //Debug.Log("Test");
+                if (PlayerController.facingRight == true)
+                {
+                    transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 154.36f);
+                    swingingright = true;
+                    //Debug.Log("Test");
+                }
+                else if (PlayerController.facingRight == false)
+                {
+                    transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -154.36f);
+                    swingingleft = true;
+                    //Debug.Log("Test");
+                }
             }
-            else if (PlayerController.facingRight == false)
+            if (swingingright == true)
             {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -154.36f);
-                swingingleft = true;
-                //Debug.Log("Test");
-            }
-        }
-        if (swingingright == true)
-        {
 
-            //StartCoroutine("Swing");
-            transform.Rotate(new Vector3(0, 0, -rotationSpeed));
-            if (transform.rotation.z <= 0)
-            {
-                swingingright = false;
+                //StartCoroutine("Swing");
+                transform.Rotate(new Vector3(0, 0, -rotationSpeed));
+                if (transform.rotation.z <= 0)
+                {
+                    swingingright = false;
+                }
             }
-        }
-        if (swingingleft == true)
-        {
+            if (swingingleft == true)
+            {
 
-            //StartCoroutine("Swing");
-            transform.Rotate(new Vector3(0, 0, -rotationSpeed));
-            if (transform.rotation.z >= 0)
-            {
-                swingingleft = false;
+                //StartCoroutine("Swing");
+                transform.Rotate(new Vector3(0, 0, -rotationSpeed));
+                if (transform.rotation.z >= 0)
+                {
+                    swingingleft = false;
+                }
+                
+                //Debug.Log("Hello");
             }
-            //Debug.Log("Hello");
-        }
+            
+        } else timebtwshots -= Time.deltaTime;
 
     }
 }
