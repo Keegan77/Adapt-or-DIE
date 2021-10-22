@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
     //BATTLEGROUND SCALE 1.481725
     public int level = 1;
     public int enemiesToDefeat;
-    //public int playstyle; // 0 = swordsman, 1 = archer, 2 = mage
-    //public GameObject[] playstyles;
+    public int playstyle; // 0 = swordsman, 1 = archer, 2 = mage
+    public GameObject[] playstyles;
     public GameObject[] player;
     public int playerhealth = 3;
     GameObject door;
@@ -32,8 +32,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         door = GameObject.FindGameObjectWithTag("Door");
-        //playstyle = Random.Range(0, 3);
-        //Instantiate(playstyles[playstyle], new Vector3(-8.57f, 0.468f, 0), transform.rotation);
+        playstyle = Random.Range(0, 3);
+        Debug.Log(playstyle);
+        Instantiate(playstyles[playstyle], new Vector3(-8.57f, 0.468f, 0), transform.rotation);
         //Debug.Log("yo");
     }
 
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         enemiesToDefeat = level;
-        //EndGame();
+        EndGame();
         if (spawnManagerScript.enemiesdead == level)
         {
             Destroy(door.gameObject);
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
         //Debug.Log(playerhealth);
 
     }
-    /*private void EndGame()
+    private void EndGame()
     {
         if (playerhealth <= 0)
         {
@@ -73,5 +74,5 @@ public class GameManager : MonoBehaviour
             }
             
         }
-    }*/
+    }
 }

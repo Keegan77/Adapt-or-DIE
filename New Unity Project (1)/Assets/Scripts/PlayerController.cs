@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 public class PlayerController : MonoBehaviour
 {
 
@@ -39,9 +39,7 @@ public class PlayerController : MonoBehaviour
             facingRight = false;
         }
         animator.SetFloat("Speed", movement.sqrMagnitude);
-        if (transform.position.x > 10) {
-            SceneManager.LoadScene(1);
-        }
+
 
     }
     void FixedUpdate()
