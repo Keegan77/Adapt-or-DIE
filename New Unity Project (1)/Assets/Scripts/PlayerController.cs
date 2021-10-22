@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         if (transform.position.x > 10)
         {
             Destroy(gameObject);
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(gamemanager.level - 1);
         }
 
     }
