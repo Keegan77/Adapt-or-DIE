@@ -98,7 +98,7 @@ public class Enemies : MonoBehaviour
             {
                 gamemanagerscript.playerhealth -= 1;
                 atktimer = atktimermax;
-                //Debug.Log("ATTACKING");
+                Debug.Log("ATTACKING");
 
             }
         }
