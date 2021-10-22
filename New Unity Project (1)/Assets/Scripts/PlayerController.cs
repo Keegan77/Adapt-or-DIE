@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     GameObject arm;
     GameObject pivot;
+    GameManager gamemanager;
     
 
     Vector2 movement;
@@ -22,6 +24,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         arm = GameObject.Find("ArchieMArm");
         pivot = GameObject.Find("ArmPivot");
+        gamemanager = FindObjectOfType<GameManager>();
 
 
     }
@@ -39,7 +42,11 @@ public class PlayerController : MonoBehaviour
             facingRight = false;
         }
         animator.SetFloat("Speed", movement.sqrMagnitude);
-
+        if (transform.position.x > 10)
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene(1);
+        }
 
     }
     void FixedUpdate()

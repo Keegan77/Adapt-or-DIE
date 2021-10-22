@@ -17,6 +17,16 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] playstyles;
     GameObject playerreal;
 
+    private void Awake()
+    {
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
+        //spawnmanager = GameObject.FindGameObjectWithTag("Spawner");
+        if (objs.Length > 1)
+        {
+            Destroy(this.gameObject);
+        }
+
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +39,6 @@ public class SpawnManager : MonoBehaviour
             Instantiate(enemy[0], GenerateEnemySpawn(), transform.rotation);
         }
         playstyle = Random.Range(0, 3);
-        Debug.Log(playstyle);
         Instantiate(playstyles[playstyle], new Vector3(-8.57f, 0.468f, 0), transform.rotation);
 
     }

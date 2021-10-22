@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public int level = 1;
     public int enemiesToDefeat;
 
-    public GameObject[] player;
+    //public GameObject[] player;
     public int playerhealth = 3;
     GameObject door;
     //GameObject spawnmanager;
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("GameController");
         //spawnmanager = GameObject.FindGameObjectWithTag("Spawner");
-        spawnManagerScript = FindObjectOfType<SpawnManager>();
+        
         if(objs.Length > 1)
         {
             Destroy(this.gameObject);
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        door = GameObject.FindGameObjectWithTag("Door");
+        //door = GameObject.FindGameObjectWithTag("Door");
         
         //Debug.Log("yo");
     }
@@ -36,13 +36,18 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        door = GameObject.FindGameObjectWithTag("Door");
+        spawnManagerScript = FindObjectOfType<SpawnManager>();
         enemiesToDefeat = level;
         //EndGame();
-        if (spawnManagerScript.enemiesdead == level)
+        if (spawnManagerScript.enemiesdead == enemiesToDefeat)
         {
             Destroy(door.gameObject);
+            spawnManagerScript.enemiesdead = 0;
+            Debug.Log("Hi");
+            level++;
         }
-        //Debug.Log(playerhealth);
+        //Debug.Log(level);
 
     }
    
