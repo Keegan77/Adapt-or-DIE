@@ -18,6 +18,8 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] playstyles;
     GameObject playerreal;
 
+    public bool level6;
+
     private void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
@@ -35,17 +37,19 @@ public class SpawnManager : MonoBehaviour
         gamemanagerscript = gamemanager.GetComponent<GameManager>();
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
-        //if (sceneName != "IntermissionCheckpoint6")
-        //{
+        if (sceneName != "IntermissionCheckpoint6")
+        {
             for (int i = 0; i < gamemanagerscript.level; i++)
             {
                 enemychosen = Random.Range(0, 2);
                 Instantiate(enemy[enemychosen], GenerateEnemySpawn(), transform.rotation);
+                level6 = false;
             }
-        //}
+        }
+        else level6 = true;
 
         playstyle = Random.Range(0, 3);
-        Instantiate(playstyles[playstyle], new Vector3(-8.57f, 0.468f, 0), transform.rotation);
+        Instantiate(playstyles[1], new Vector3(-8.57f, 0.468f, 0), transform.rotation);
 
     }
 

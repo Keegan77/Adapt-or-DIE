@@ -42,14 +42,15 @@ public class GameManager : MonoBehaviour
         enemiesToDefeat = level;
         Debug.Log(playerhealth);
         //EndGame();
-        if (spawnManagerScript.enemiesdead == enemiesToDefeat)
+        if (spawnManagerScript.enemiesdead == enemiesToDefeat && spawnManagerScript.level6 == false)
         {
             Destroy(door.gameObject);
             spawnManagerScript.enemiesdead = 0;
             Debug.Log("Hi");
             level++;
             playerhealth = maxplayerhealth;
-        }
+        } 
+
         //Debug.Log(level);
 
     }
