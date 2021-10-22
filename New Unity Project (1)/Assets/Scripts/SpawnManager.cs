@@ -37,7 +37,7 @@ public class SpawnManager : MonoBehaviour
         gamemanagerscript = gamemanager.GetComponent<GameManager>();
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
-        if (sceneName != "IntermissionCheckpoint6")
+        if (sceneName != "IntermissionCheckpoint6" && sceneName != "Level 7")
         {
             for (int i = 0; i < gamemanagerscript.level; i++)
             {
