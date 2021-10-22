@@ -225,6 +225,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   enemiesToDefeat: 0
+  playstyle: 0
+  playstyles:
+  - {fileID: 7982062366744596638, guid: bbe49babec2b6514bbc89649bfc05d76, type: 3}
+  - {fileID: 8170807240486972268, guid: e83338800bf19cc4b91d539066cb14be, type: 3}
+  - {fileID: 1012833659237233297, guid: cfc4da19041237542b47f43d4d8e65ac, type: 3}
   player:
   - {fileID: 7982062366744596638, guid: bbe49babec2b6514bbc89649bfc05d76, type: 3}
   - {fileID: 8170807240486972268, guid: e83338800bf19cc4b91d539066cb14be, type: 3}
@@ -241,22 +246,6 @@ PrefabInstance:
       propertyPath: gamemanager
       value: 
       objectReference: {fileID: 658019648}
-    - target: {fileID: 1740035943, guid: 2f2921bbee4f6184db76e6b0ccfcc1e1, type: 3}
-      propertyPath: playstyles.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1740035943, guid: 2f2921bbee4f6184db76e6b0ccfcc1e1, type: 3}
-      propertyPath: playstyles.Array.data[0]
-      value: 
-      objectReference: {fileID: 7982062366744596638, guid: bbe49babec2b6514bbc89649bfc05d76, type: 3}
-    - target: {fileID: 1740035943, guid: 2f2921bbee4f6184db76e6b0ccfcc1e1, type: 3}
-      propertyPath: playstyles.Array.data[1]
-      value: 
-      objectReference: {fileID: 8170807240486972268, guid: e83338800bf19cc4b91d539066cb14be, type: 3}
-    - target: {fileID: 1740035943, guid: 2f2921bbee4f6184db76e6b0ccfcc1e1, type: 3}
-      propertyPath: playstyles.Array.data[2]
-      value: 
-      objectReference: {fileID: 1012833659237233297, guid: cfc4da19041237542b47f43d4d8e65ac, type: 3}
     - target: {fileID: 543361575708944893, guid: 2f2921bbee4f6184db76e6b0ccfcc1e1, type: 3}
       propertyPath: m_Name
       value: Battleground1

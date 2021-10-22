@@ -13,14 +13,14 @@ public class GameManager : MonoBehaviour
     public GameObject[] player;
     public int playerhealth = 3;
     GameObject door;
-    GameObject spawnmanager;
+    //GameObject spawnmanager;
     SpawnManager spawnManagerScript;
     GameObject playerreal;
     // Start is called before the first frame update
     private void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("GameController");
-        spawnmanager = GameObject.FindGameObjectWithTag("Spawner");
+        //spawnmanager = GameObject.FindGameObjectWithTag("Spawner");
         spawnManagerScript = FindObjectOfType<SpawnManager>();
         if(objs.Length > 1)
         {
