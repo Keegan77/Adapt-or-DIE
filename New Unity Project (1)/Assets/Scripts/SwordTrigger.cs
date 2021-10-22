@@ -48,7 +48,7 @@ public class SwordTrigger : MonoBehaviour
             ObjectCollider.isTrigger = false;
         }
 
-        if (enemyobj.transform.position.x < transform.position.x + 5)
+        if (enemyobj.transform.position.x < transform.position.x)
         {
             knockback = -50;
         }

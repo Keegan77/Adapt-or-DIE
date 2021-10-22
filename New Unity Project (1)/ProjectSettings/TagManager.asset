@@ -10,6 +10,10 @@ TagManager:
   - Projectile
   - Spawner
   - Door
+  - threehearts
+  - twohearts
+  - oneheart
+  - fourhearts
   layers:
   - Default
   - TransparentFX
@@ -58,4 +62,7 @@ TagManager:
     locked: 0
   - name: Arm
     uniqueID: 255291639
+    locked: 0
+  - name: UI
+    uniqueID: 458486623
     locked: 0

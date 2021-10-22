@@ -32,6 +32,7 @@ public class SpawnManager : MonoBehaviour
     public int enemiesdead;
     GameObject door;
 
+
     public int playstyle; // 0 = swordsman, 1 = archer, 2 = mage
     public GameObject[] playstyles;
     GameObject playerreal;
@@ -51,6 +52,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         door = GameObject.FindGameObjectWithTag("Door");
         gamemanager = GameObject.Find("GameManager");
         gamemanagerscript = gamemanager.GetComponent<GameManager>();
@@ -94,7 +96,7 @@ public class SpawnManager : MonoBehaviour
         }
 
         playstyle = Random.Range(0, 3);
-        Instantiate(playstyles[1], new Vector3(-8.57f, 0.468f, 0), transform.rotation);
+        Instantiate(playstyles[playstyle], new Vector3(-8.57f, 0.468f, 0), transform.rotation);
 
 
     }
