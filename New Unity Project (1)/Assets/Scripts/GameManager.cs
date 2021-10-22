@@ -10,12 +10,16 @@ public class GameManager : MonoBehaviour
     public GameObject[] playstyles;
     public GameObject[] player;
     public int playerhealth = 3;
-
+    GameObject door;
+    //GameObject spawnmanager;
+    SpawnManager spawnManagerScript;
     GameObject playerreal;
     // Start is called before the first frame update
     private void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("GameController");
+        //spawnmanager = GameObject.FindGameObjectWithTag("Spawner");
+        spawnManagerScript = FindObjectOfType<SpawnManager>();
         if(objs.Length > 1)
         {
             Destroy(this.gameObject);
@@ -25,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        door = GameObject.FindGameObjectWithTag("Door");
         playstyle = Random.Range(0, 3);
         Debug.Log(playstyle);
         Instantiate(playstyles[playstyle], new Vector3(-8.57f, 0.468f, 0), transform.rotation);
@@ -37,6 +41,10 @@ public class GameManager : MonoBehaviour
     {
         enemiesToDefeat = level;
         EndGame();
+        if (spawnManagerScript.enemiesdead == level)
+        {
+            Destroy(door.gameObject);
+        }
         //Debug.Log(playerhealth);
 
     }

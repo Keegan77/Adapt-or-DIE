@@ -6,9 +6,10 @@ public class EnemyHealth : MonoBehaviour
 {
     public int enemHealth = 3;
     // Start is called before the first frame update
+    SpawnManager spawnmanagerscript;
     void Start()
     {
-        
+        spawnmanagerscript = FindObjectOfType<SpawnManager>();
     }
 
     // Update is called once per frame
@@ -16,6 +17,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (enemHealth <= 0)
         {
+            spawnmanagerscript.enemiesdead += 1;
             Destroy(gameObject);
         }
 

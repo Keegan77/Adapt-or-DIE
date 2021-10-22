@@ -9,22 +9,29 @@ public class SpawnManager : MonoBehaviour
     public float spawnrangeleftX = 0;
     public float spawnrangerightX = 5f;
     public float spawnrangeY = 3.5f;
+    public GameObject gamemanager;
+    GameManager gamemanagerscript;
+    public int enemiesdead;
 
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 3; i++)
+        gamemanager = GameObject.Find("GameManager");
+        gamemanagerscript = gamemanager.GetComponent<GameManager>();
+
+        for (int i = 0; i < gamemanagerscript.level; i++)
         {
             enemychosen = Random.Range(0, 2);
-            Instantiate(enemy[enemychosen], GenerateEnemySpawn(), transform.rotation);
+            Instantiate(enemy[0], GenerateEnemySpawn(), transform.rotation);
         }
+
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(enemiesdead);
     }
     private Vector3 GenerateEnemySpawn()
     {

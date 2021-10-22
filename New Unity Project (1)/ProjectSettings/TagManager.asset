@@ -8,6 +8,8 @@ TagManager:
   - Walls
   - Props
   - Projectile
+  - Spawner
+  - Door
   layers:
   - Default
   - TransparentFX

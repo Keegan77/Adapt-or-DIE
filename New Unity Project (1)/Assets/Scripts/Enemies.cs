@@ -13,6 +13,9 @@ public class Enemies : MonoBehaviour
     Transform enemy;
     Vector2 movement;
     BoxCollider2D enemybox;
+    //public GameObject spawnmanager;
+    SpawnManager spawnmanagerscript;
+
     public GameObject gamemanager;
     
     public bool enemyFacingRight;
@@ -23,6 +26,8 @@ public class Enemies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //spawnmanager = GameObject.FindGameObjectWithTag("Spawner");
+        spawnmanagerscript = FindObjectOfType<SpawnManager>();
         enemyRb = GetComponent<Rigidbody2D>();
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         playerobj = GameObject.FindGameObjectWithTag("Player");
@@ -36,6 +41,7 @@ public class Enemies : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         transform.position = Vector2.MoveTowards(transform.position, Player.position, speed * Time.deltaTime);
         if (Vector2.Distance(transform.position, Player.position) < 1)
         {
@@ -59,7 +65,9 @@ public class Enemies : MonoBehaviour
         }
         if (enemHealth <= 0)
         {
-            Destroy(gameObject);
+            spawnmanagerscript.enemiesdead += 1;
+            //Debug.Log("Test");
+            //Destroy(gameObject);
         }
         //Debug.Log(enemHealth);
     }
