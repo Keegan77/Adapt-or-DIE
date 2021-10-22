@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    //BATTLEGROUND POSITION X 0.0017 Y 0.5613 Z 0
+    //BATTLEGROUND SCALE 1.481725
     public int level = 1;
     public int enemiesToDefeat;
     public int playstyle; // 0 = swordsman, 1 = archer, 2 = mage
@@ -44,6 +46,9 @@ public class GameManager : MonoBehaviour
         if (spawnManagerScript.enemiesdead == level)
         {
             Destroy(door.gameObject);
+            level++;
+            spawnManagerScript.enemiesdead = 0;
+            
         }
         //Debug.Log(playerhealth);
 
