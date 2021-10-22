@@ -15,7 +15,7 @@ MonoBehaviour:
   playercontroller: {fileID: 8170807240486972267}
   projectile: {fileID: 1245136181874245333, guid: cb293e4ba05cad240b349a43f15488ba, type: 3}
   shotPoint: {fileID: 1140781511731583837}
-  startTimeBtwShots: 1
+  startTimeBtwShots: 0.2
 --- !u!1 &4340066212384517586
 GameObject:
   m_ObjectHideFlags: 0

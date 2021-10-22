@@ -13,7 +13,20 @@ public class SpawnManager : MonoBehaviour
     public float spawnrangeleftX7 = 5;
     public float spawnrangerightX7 = 7.7f;
     public float spawnrangeY7 = 2.38f;
-    //
+    //lvl 8 vars
+    float spawnrangeleftX8 = -1.79f;
+    float spawnrangerightX8 = 1.69f;
+    float spawnrangeY8 = 2.43f;
+    //lvl 9 vars
+    float spawnrangeleftX9 = 6.13f;
+    float spawnrangerightX9 = 7.49f;
+    float spawnrangeY9 = 2.4f;
+    //lvl 10 vars
+    float spawnrangerightX10 = 7.65f;
+    float spawnrangeleftX10 = -2.96f;
+    float spawnrangetopY10 = 3.69f;
+    float spawnrangebotY10 = 3.108f
+;    //
     public GameObject gamemanager;
     GameManager gamemanagerscript;
     public int enemiesdead;
@@ -50,7 +63,7 @@ public class SpawnManager : MonoBehaviour
             for (int i = 0; i < gamemanagerscript.level; i++)
             {
                 
-                if (sceneName != "Level 7")
+                if (sceneName != "Level 7" && sceneName != "Level 8" && sceneName != "Level 9" && sceneName != "Level 10" && sceneName != "Level 11")
                 {
                     enemychosen = Random.Range(0, 2);
                     Instantiate(enemy[enemychosen], GenerateEnemySpawn(), transform.rotation);
@@ -59,6 +72,21 @@ public class SpawnManager : MonoBehaviour
                 {
                     enemychosen = Random.Range(0, 2);
                     Instantiate(enemy[enemychosen], GenerateEnemySpawn7(), transform.rotation);
+                }
+                if (sceneName == "Level 8")
+                {
+                    enemychosen = Random.Range(0, 2);
+                    Instantiate(enemy[enemychosen], GenerateEnemySpawn8(), transform.rotation);
+                }
+                if (sceneName == "Level 9")
+                {
+                    enemychosen = Random.Range(0, 2);
+                    Instantiate(enemy[enemychosen], GenerateEnemySpawn9(), transform.rotation);
+                }
+                if (sceneName == "Level 10")
+                {
+                    enemychosen = Random.Range(0, 2);
+                    Instantiate(enemy[enemychosen], GenerateEnemySpawn9(), transform.rotation);
                 }
 
                 level6 = false;
@@ -88,6 +116,27 @@ public class SpawnManager : MonoBehaviour
     {
         float spawnPosX = Random.Range(spawnrangerightX7, spawnrangeleftX7);
         float spawnPosY = Random.Range(spawnrangeY7, -spawnrangeY7);
+        Vector3 randomPos = new Vector3(spawnPosX, spawnPosY, 0);
+        return randomPos;
+    }
+    private Vector3 GenerateEnemySpawn8()
+    {
+        float spawnPosX = Random.Range(spawnrangerightX8, spawnrangeleftX8);
+        float spawnPosY = Random.Range(spawnrangeY8, -spawnrangeY8);
+        Vector3 randomPos = new Vector3(spawnPosX, spawnPosY, 0);
+        return randomPos;
+    }
+    private Vector3 GenerateEnemySpawn9()
+    {
+        float spawnPosX = Random.Range(spawnrangerightX9, spawnrangeleftX9);
+        float spawnPosY = Random.Range(spawnrangeY9, -spawnrangeY9);
+        Vector3 randomPos = new Vector3(spawnPosX, spawnPosY, 0);
+        return randomPos;
+    }
+    private Vector3 GenerateEnemySpawn10()
+    {
+        float spawnPosX = Random.Range(spawnrangerightX10, spawnrangeleftX10);
+        float spawnPosY = Random.Range(spawnrangetopY10, spawnrangebotY10);
         Vector3 randomPos = new Vector3(spawnPosX, spawnPosY, 0);
         return randomPos;
     }
