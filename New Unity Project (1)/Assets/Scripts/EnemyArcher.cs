@@ -8,7 +8,7 @@ public class EnemyArcher : MonoBehaviour
     GameObject playerobj;
     public GameObject enemyArrow;
     public Transform shotpoint;
-    float timer = 2400;
+    float timer = 1500;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,7 @@ public class EnemyArcher : MonoBehaviour
         if (timer <= 0)
         {
             Instantiate(enemyArrow, shotpoint.position, transform.rotation);
-            timer = 2400;
+            timer = 1500;
         }
         if (playerobj.transform.position.x < transform.position.x)
         {

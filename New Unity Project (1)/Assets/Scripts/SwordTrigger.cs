@@ -73,12 +73,10 @@ public class SwordTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             //enemyscript.enemyHealth -= 1;
-            //Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>();
-
-            
+            Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>();
             //wait = true;
-            //float verticalknockback = (enemyobj.transform.position.y - transform.position.y) * 50;
-            //rb.AddForce(new Vector2(knockback, verticalknockback), ForceMode2D.Impulse);
+            float verticalknockback = (enemyobj.transform.position.y - transform.position.y) * 50;
+            rb.AddForce(new Vector2(knockback, verticalknockback), ForceMode2D.Impulse);
             other.gameObject.GetComponent<EnemyHealth>().Damage(1);
             //box.isTrigger = true;
             Debug.Log("Hit");

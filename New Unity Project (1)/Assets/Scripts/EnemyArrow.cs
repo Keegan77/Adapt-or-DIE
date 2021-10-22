@@ -41,7 +41,7 @@ public class EnemyArrow : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
-            gamemanagerscript.playerhealth --;
+            gamemanagerscript.playerhealth--;
             
         }
         else if (other.gameObject.CompareTag("Props"))

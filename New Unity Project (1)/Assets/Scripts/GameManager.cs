@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
         enemiesToDefeat = level;
         Debug.Log(playerhealth);
         //EndGame();
-        if (spawnManagerScript.enemiesdead == enemiesToDefeat && spawnManagerScript.level6 == false)
+        if (spawnManagerScript.enemiesdead == enemiesToDefeat)
         {
             Destroy(door.gameObject);
             spawnManagerScript.enemiesdead = 0;
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
             level++;
             playerhealth = maxplayerhealth;
         } 
-
+        
         //Debug.Log(level);
 
     }

@@ -14,29 +14,46 @@ public class ArmMage : MonoBehaviour
 
     private float timeBtwShots;
     public float startTimeBtwShots;
+    float waittime = 1200;
+    float minusfactor = 300;
+    public float cooldown;
+    public bool canShoot;
 
     // Start is called before the first frame update
     void Start()
     {
         arm = GameObject.Find("ArchieSArm");
+        cooldown = waittime;
     }
     // Update is called once per frame
     void Update()
     {
         ArcherFacing();
 
-        if (timeBtwShots <= 0)
+        if (cooldown >= minusfactor && canShoot)
         {
             if (Input.GetMouseButtonDown(0))
             {
                 Instantiate(projectileMage, shotPoint.position, transform.rotation);
-                timeBtwShots = startTimeBtwShots;
+                //timeBtwShots = startTimeBtwShots;
+                cooldown -= minusfactor;
             }
         }
         else
         {
-            timeBtwShots -= Time.deltaTime;
+            cooldown++;
+            canShoot = false;
         }
+        if (cooldown >= waittime)
+        {
+            canShoot = true;
+        }
+        if (cooldown > waittime)
+        {
+            cooldown = waittime;
+        }
+        
+        //Debug.Log(cooldown);
     }
     private void ArcherFacing()
     {

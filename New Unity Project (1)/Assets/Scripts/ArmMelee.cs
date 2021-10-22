@@ -9,8 +9,8 @@ public class ArmMelee : MonoBehaviour
     public bool swingingright = false;
     public bool swingingleft = false;
     public PlayerController PlayerController;
-    private float timebtwshots = 1;
-    private float starttimebtwshots = 500;
+    private float timebtwshots;
+    private float starttimebtwshots = 150;
 
     //bool justswung = false;
     // Start is called before the first frame update
