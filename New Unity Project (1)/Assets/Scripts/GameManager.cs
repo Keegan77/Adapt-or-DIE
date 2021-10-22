@@ -6,14 +6,13 @@ public class GameManager : MonoBehaviour
 {
     public int level = 1;
     public int enemiesToDefeat;
-    public int playstyle; // 0 = swordsman, 1 = archer, 2 = mage
-    public GameObject[] playstyles;
+
     public GameObject[] player;
     public int playerhealth = 3;
     GameObject door;
     //GameObject spawnmanager;
     SpawnManager spawnManagerScript;
-    GameObject playerreal;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -30,9 +29,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         door = GameObject.FindGameObjectWithTag("Door");
-        playstyle = Random.Range(0, 3);
-        Debug.Log(playstyle);
-        Instantiate(playstyles[playstyle], new Vector3(-8.57f, 0.468f, 0), transform.rotation);
+        
         //Debug.Log("yo");
     }
 
@@ -40,7 +37,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         enemiesToDefeat = level;
-        EndGame();
+        //EndGame();
         if (spawnManagerScript.enemiesdead == level)
         {
             Destroy(door.gameObject);
@@ -48,26 +45,5 @@ public class GameManager : MonoBehaviour
         //Debug.Log(playerhealth);
 
     }
-    private void EndGame()
-    {
-        if (playerhealth <= 0)
-        {
-            switch (playstyle)
-            {
-                case 0:
-                    playerreal = GameObject.Find("Archie(Clone)");
-                    Destroy(playerreal);
-                    break;
-                case 1:
-                    playerreal = GameObject.Find("ArchieArcher 1(Clone)");
-                    Destroy(playerreal);
-                    break;
-                case 2:
-                    playerreal = GameObject.Find("ArchieMage(Clone)");
-                    Destroy(playerreal);
-                    break;
-            }
-            
-        }
-    }
+   
 }
