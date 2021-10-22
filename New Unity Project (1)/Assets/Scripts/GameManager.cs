@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     //public GameObject[] player;
     public int playerhealth = 3;
+    public int maxplayerhealth = 3;
     GameObject door;
     //GameObject spawnmanager;
     SpawnManager spawnManagerScript;
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
         door = GameObject.FindGameObjectWithTag("Door");
         spawnManagerScript = FindObjectOfType<SpawnManager>();
         enemiesToDefeat = level;
+        Debug.Log(playerhealth);
         //EndGame();
         if (spawnManagerScript.enemiesdead == enemiesToDefeat)
         {
@@ -46,6 +48,7 @@ public class GameManager : MonoBehaviour
             spawnManagerScript.enemiesdead = 0;
             Debug.Log("Hi");
             level++;
+            playerhealth = maxplayerhealth;
         }
         //Debug.Log(level);
 

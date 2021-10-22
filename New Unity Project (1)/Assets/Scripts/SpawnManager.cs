@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] enemy;
@@ -12,6 +12,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject gamemanager;
     GameManager gamemanagerscript;
     public int enemiesdead;
+
 
     public int playstyle; // 0 = swordsman, 1 = archer, 2 = mage
     public GameObject[] playstyles;
@@ -32,12 +33,17 @@ public class SpawnManager : MonoBehaviour
     {
         gamemanager = GameObject.Find("GameManager");
         gamemanagerscript = gamemanager.GetComponent<GameManager>();
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+        //if (sceneName != "IntermissionCheckpoint6")
+        //{
+            for (int i = 0; i < gamemanagerscript.level; i++)
+            {
+                enemychosen = Random.Range(0, 2);
+                Instantiate(enemy[enemychosen], GenerateEnemySpawn(), transform.rotation);
+            }
+        //}
 
-        for (int i = 0; i < gamemanagerscript.level; i++)
-        {
-            enemychosen = Random.Range(0, 2);
-            Instantiate(enemy[0], GenerateEnemySpawn(), transform.rotation);
-        }
         playstyle = Random.Range(0, 3);
         Instantiate(playstyles[playstyle], new Vector3(-8.57f, 0.468f, 0), transform.rotation);
 
@@ -46,7 +52,7 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(enemiesdead);
+        //Debug.Log(enemiesdead);
         EndGame();
     }
     private Vector3 GenerateEnemySpawn()
